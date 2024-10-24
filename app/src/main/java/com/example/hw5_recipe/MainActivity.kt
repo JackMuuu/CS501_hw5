@@ -224,18 +224,15 @@ fun RecipeDetailScreen(recipeDetail: RecipeDetail, onBack: () -> Unit) {
                 style = MaterialTheme.typography.titleMedium
             )
             Spacer(modifier = Modifier.height(8.dp))
-            val cleanedInstructions = cleanHtmlTags(recipeDetail.instructions ?: "No instructions available.")
-            Text(cleanedInstructions)
+
+            Text(text = recipeDetail.instructions?.stripHtml() ?: "No instructions available.",
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Justify
+            )
         }
     }
 }
 
-// function to clean the parsed info from API which contains html format signs
-fun cleanHtmlTags(input: String): String {
-    val pattern = Pattern.compile("<[^>]*>")
-    val matcher = pattern.matcher(input)
-    return matcher.replaceAll("")
-}
 
 @Composable
 fun isLandscape(): Boolean {

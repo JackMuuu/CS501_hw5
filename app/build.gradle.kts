@@ -68,6 +68,7 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
 
 
     implementation(libs.androidx.core.ktx)
